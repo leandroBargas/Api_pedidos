@@ -12,9 +12,9 @@ import com.leandrobargas.Api.entities.pk.OrderItemPK;
 
 @Entity
 @Table(name = "tb_order_item")
-public class OrderItem implements Serializable{
+public class OrderItem implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@EmbeddedId
 	private OrderItemPK id = new OrderItemPK();
 	
@@ -22,14 +22,12 @@ public class OrderItem implements Serializable{
 	private Double price;
 	
 	public OrderItem() {
-		// TODO Auto-generated constructor stub
 	}
 
-	public OrderItem(Order order, Product product, Integer quantity, double price) {
+	public OrderItem(Order order, Product product, Integer quantity, Double price) {
 		super();
 		id.setOrder(order);
 		id.setProduct(product);
-		
 		this.quantity = quantity;
 		this.price = price;
 	}
@@ -59,14 +57,18 @@ public class OrderItem implements Serializable{
 		this.quantity = quantity;
 	}
 
-	public double getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 
+	public Double getSubTotal() {
+		return price * quantity;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -91,5 +93,4 @@ public class OrderItem implements Serializable{
 			return false;
 		return true;
 	}
-	
 }
