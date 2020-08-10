@@ -14,15 +14,14 @@ import com.leandrobargas.Api.repositories.OrderRepository;
 public class OrderService {
 
 	@Autowired
-	private OrderRepository respository;
-	public List<Order> findAll(){
-		return respository.findAll();
-		
+	private OrderRepository repository;
+	
+	public List<Order> findAll() {
+		return repository.findAll();
 	}
 	
 	public Order findById(Long id) {
-		Optional<Order> obj = respository.findById(id);
+		Optional<Order> obj = repository.findById(id);
 		return obj.get();
-		
 	}
 }

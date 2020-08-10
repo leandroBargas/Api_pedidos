@@ -13,16 +13,14 @@ import com.leandrobargas.Api.repositories.CategoryRepository;
 public class CategoryService {
 
 	@Autowired
-	private CategoryRepository respository;
-	public List<Category> findAll(){
-		return respository.findAll();
-		
+	private CategoryRepository repository;
+	
+	public List<Category> findAll() {
+		return repository.findAll();
 	}
 	
 	public Category findById(Long id) {
-		Optional<Category> obj = respository.findById(id);
+		Optional<Category> obj = repository.findById(id);
 		return obj.get();
-		
 	}
-	
 }

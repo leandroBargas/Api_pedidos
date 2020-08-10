@@ -13,16 +13,14 @@ import com.leandrobargas.Api.repositories.ProductRepository;
 public class ProductService {
 
 	@Autowired
-	private ProductRepository respository;
-	public List<Product> findAll(){
-		return respository.findAll();
-		
+	private ProductRepository repository;
+	
+	public List<Product> findAll() {
+		return repository.findAll();
 	}
 	
 	public Product findById(Long id) {
-		Optional<Product> obj = respository.findById(id);
+		Optional<Product> obj = repository.findById(id);
 		return obj.get();
-		
 	}
-	
 }
